@@ -1,0 +1,20 @@
+server:
+  port: ${port:30001}
+  servlet:
+    context-path: /app
+spring:
+  application:
+    name: app
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: 5d8015a6-0444-4b00-b63a-319f36d2e3ec
+        group: APP_DEV
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 5d8015a6-0444-4b00-b63a-319f36d2e3ec
+        cluster-name: DEFAULT

@@ -1,0 +1,32 @@
+server:
+  port: ${port:40002}
+  servlet:
+    context-path: /service1
+spring:
+  application:
+    name: service2
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: 5d8015a6-0444-4b00-b63a-319f36d2e3ec
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 5d8015a6-0444-4b00-b63a-319f36d2e3ec
+        cluster-name: DEFAULT
+dubbo:
+  scan:
+    base-packages: com.jonny.service2.service
+  protocol:
+    name: dubbo
+    port: ${dubbo_port:20882}
+  registry:
+    address: nacos://127.0.0.1:8848
+  application:
+    qos-enable: false
+  consumer:
+    check: false
+

@@ -1,0 +1,19 @@
+server:
+  port: ${port:50001}
+
+spring:
+  application:
+    name: gateway
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yml
+        namespace: 5d8015a6-0444-4b00-b63a-319f36d2e3ec
+        group: APP_GROUP
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: 5d8015a6-0444-4b00-b63a-319f36d2e3ec
+        cluster-name: DEFAULT
